@@ -1,0 +1,24 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "tipoDia",
+            "fieldType": "TipoDia",
+            "fieldValues": "LAB,VIER,SAB,FEST,ESP"
+        },
+        {
+            "fieldName": "fecha",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20180213182048",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "relacion_fecha_tipodia",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}

@@ -1,0 +1,177 @@
+/* ==========================================================================
+Main page styles
+========================================================================== */
+.titulo1 {
+    text-align-all: center;
+    font-weight: bold;
+    font-size: 300%;
+}
+.titulo2 {
+    font-weight: bold;
+    font-size: 120%;
+}
+.btn-general1{
+    border-radius: 6px;
+    font-family: sans-serif;
+    min-width: 110px;
+    min-height: 100px;
+    text-align-all: center;
+    background-color: rgba(255, 232, 0, 0.83);
+}
+
+.btn-general2{
+    border-radius: 6px;
+    font-family: sans-serif;
+    min-width: 110px;
+    min-height: 100px;
+    text-align-all: center;
+    background-color: rgba(0, 255, 33, 0.79);
+}
+
+.btn-general3{
+    border-radius: 6px;
+    font-family: sans-serif;
+    min-width: 110px;
+    min-height: 100px;
+    text-align-all: center;
+    background-color: rgba(255, 34, 21, 0.81);
+}
+.btn-general4{
+    border-radius: 6px;
+    font-family: sans-serif;
+    min-width: 110px;
+    min-height: 100px;
+    text-align-all: center;
+    background-color: rgba(0, 20, 255, 0.64);
+}
+
+.btn-Linea1{
+    border-radius: 6px;
+    font-family: sans-serif;
+    min-width: 110px;
+    text-align-all: center;
+    background-color: #19e7ff;
+}
+
+
+.btn-Linea2{
+    border-radius: 6px;
+    font-family: sans-serif;
+    min-width: 110px;
+    text-align-all: center;
+    background-color: rgba(255, 10, 0, 0.82);
+}
+.btn-Linea3{
+    border-radius: 6px;
+    font-family: sans-serif;
+    min-width: 110px;
+    text-align-all: center;
+    background-color: #ffe800;
+}
+.btn-Linea4{
+    border-radius: 6px;
+    font-family: sans-serif;
+    min-width: 110px;
+    text-align-all: center;
+    background-color: #ff4300;
+}
+.btn-Linea5{
+    border-radius: 6px;
+    font-family: sans-serif;
+    min-width: 110px;
+    text-align-all: center;
+    background-color: #00ff21;
+}
+.btn-Linea6{
+    border-radius: 6px;
+    font-family: sans-serif;
+    min-width: 110px;
+    text-align-all: center;
+    background-color: #a19993;
+}
+.btn-Linea7{
+    border-radius: 6px;
+    font-family: sans-serif;
+    min-width: 110px;
+    text-align-all: center;
+    background-color: #ffbb00;
+}
+.btn-Linea8{
+    border-radius: 6px;
+    font-family: sans-serif;
+    min-width: 110px;
+    text-align-all: center;
+    background-color: rgba(255, 119, 151, 0.83);
+}
+.btn-Linea9{
+    border-radius: 6px;
+    font-family: sans-serif;
+    min-width: 110px;
+    text-align-all: center;
+    background-color: #ff00cc;
+}
+.btn-Linea10{
+    border-radius: 6px;
+    font-family: sans-serif;
+    min-width: 110px;
+    text-align-all: center;
+    background-color: #0014ff;
+}
+.btn-Linea11{
+    border-radius: 6px;
+    font-family: sans-serif;
+    min-width: 110px;
+    text-align-all: center;
+    background-color: #13ff44;
+}
+.btn-Linea12{
+    border-radius: 6px;
+    font-family: sans-serif;
+    min-width: 110px;
+    text-align-all: center;
+    background-color: #007fff;
+}
+
+.btn-ttc{
+    min-width: 110px;
+    background-color: #2c50f4;
+    border: #1c1e94;
+    text-shadow: 0 -1px 0 rgba(28, 28, 109, 0.76);
+    text-align-all: center;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+.btn-ttc:hover{
+    background-color: #ff2215; /* Green */
+    color: white;
+    color: #f4fff0;
+
+}
+.btn-ttc:active {
+    font-family: sans-serif;
+    color: #f4fff0;
+    text-shadow: 0 -1px 0 rgba(156, 17, 16, 0.76);
+    background-color: #f71b19;
+}
+.hipster {
+    display: inline-block;
+    width: 347px;
+    height: 217px;
+    background: url("../../content/images/hipster.png") no-repeat center top;
+    background-size: contain;
+}
+
+/* wait autoprefixer update to allow simple generation of high pixel density media query */
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1),
+only screen and (        min-device-pixel-ratio: 2),
+only screen and (                min-resolution: 192dpi),
+only screen and (                min-resolution: 2dppx) {
+    .hipster {
+        background: url("../../content/images/hipster2x.png") no-repeat center top;
+        background-size: contain;
+    }
+}
+

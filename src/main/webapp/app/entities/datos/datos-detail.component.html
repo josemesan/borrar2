@@ -1,0 +1,86 @@
+
+<div *ngIf="datos">
+    <h2><span jhiTranslate="calimetroApp.datos.detail.title">Datos</span> {{datos.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="calimetroApp.datos.fechaHora">Fecha Hora</span></dt>
+        <dd>
+            <span>{{datos.fechaHora | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="calimetroApp.datos.intervaloMedio">Intervalo Medio</span></dt>
+        <dd>
+            <span>{{datos.intervaloMedio}}</span>
+        </dd>
+        <dt><span jhiTranslate="calimetroApp.datos.desviacionMedia">Desviacion Media</span></dt>
+        <dd>
+            <span>{{datos.desviacionMedia}}</span>
+        </dd>
+        <dt><span jhiTranslate="calimetroApp.datos.tiempoVuelta">Tiempo Vuelta</span></dt>
+        <dd>
+            <span>{{datos.tiempoVuelta}}</span>
+        </dd>
+        <dt><span jhiTranslate="calimetroApp.datos.numeroTrenes">Numero Trenes</span></dt>
+        <dd>
+            <span>{{datos.numeroTrenes}}</span>
+        </dd>
+        <dt><span jhiTranslate="calimetroApp.datos.viajeros">Viajeros</span></dt>
+        <dd>
+            <span>{{datos.viajeros}}</span>
+        </dd>
+        <dt><span jhiTranslate="calimetroApp.datos.toc">Toc</span></dt>
+        <dd>
+            <span>{{datos.toc}}</span>
+        </dd>
+        <dt><span jhiTranslate="calimetroApp.datos.densidad">Densidad</span></dt>
+        <dd>
+            <span>{{datos.densidad}}</span>
+        </dd>
+        <dt><span jhiTranslate="calimetroApp.datos.consumo">Consumo</span></dt>
+        <dd>
+            <span>{{datos.consumo}}</span>
+        </dd>
+        <dt><span jhiTranslate="calimetroApp.datos.velocidad">Velocidad</span></dt>
+        <dd>
+            <span>{{datos.velocidad}}</span>
+        </dd>
+        <dt><span jhiTranslate="calimetroApp.datos.cocheKm">Coche Km</span></dt>
+        <dd>
+            <span>{{datos.cocheKm}}</span>
+        </dd>
+        <dt><span jhiTranslate="calimetroApp.datos.linea">Linea</span></dt>
+        <dd>
+            <div *ngIf="datos.linea">
+                <a [routerLink]="['/linea', datos.linea?.id]">{{datos.linea?.nombre}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="calimetroApp.datos.intervaloMin">Intervalo Min</span></dt>
+        <dd>
+            <div *ngIf="datos.intervaloMin">
+                <a [routerLink]="['/intervalo-min', datos.intervaloMin?.id]">{{datos.intervaloMin?.interMin}} min
+                    {{datos.intervaloMin?.estacionMin}} V.{{datos.intervaloMin?.viaMin}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="calimetroApp.datos.intervaloMax">Intervalo Max</span></dt>
+        <dd>
+            <div *ngIf="datos.intervaloMax">
+                <a [routerLink]="['/intervalo-max', datos.intervaloMax?.id]">{{datos.intervaloMax?.interMax}} min
+                    {{datos.intervaloMax?.estacionMax}} V.{{datos.intervaloMax?.viaMax}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button *jhiHasAnyAuthority="'ROLE_ADMIN'" type="button"
+            [routerLink]="['/', { outlets: { popup: 'datos/'+ datos.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

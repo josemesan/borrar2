@@ -1,0 +1,69 @@
+<div class="row">
+    <div class="col-md-3">
+        <h2>
+            Gráficos de {{linea}}
+        </h2>
+    </div>
+    <div class="col-md-3">
+        <h6> <span jhiTranslate="global.fecha">Fecha</span> ( {{tipo}} ):</h6>
+        <input class="form-control" type="date" [(ngModel)]="desde" (change)="loadAll()">
+    </div>
+</div>
+<br>
+
+<div *ngIf="datos.length == 0"><h4 jhiTranslate="global.sindatos">Fecha sin datos</h4> </div>
+
+<div class="table-responsive"  *ngIf="datos.length">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th width="50%" scope="col">Viajeros de la Linea</th>
+                <th scope="col">Variacion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    {{viajeros[0]}}
+                </td>
+                <td>
+                    <i *ngIf="(this.viajeros[0]-this.viajeros[2]) < 0" class="fa fa-arrow-down" aria-hidden="true" style="color:red"></i>
+                    <i *ngIf="(this.viajeros[0]-this.viajeros[2]) > 0" class="fa fa-arrow-up" aria-hidden="true" style="color:blue"></i>
+                    <i *ngIf="(this.viajeros[0]-this.viajeros[2]) == 0" class="fa fa-arrows-h" aria-hidden="true" style="color:lightgreen"></i>
+                    {{viajeros[0]-viajeros[2]}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div [chart]="chartDetalle" *ngIf="datos.length"></div>
+
+<button *jhiHasAnyAuthority="'ROLE_ADMIN'" class="btn btn-primary float-right jh-create-entity create-observaciones" [routerLink]="['/', { outlets: { popup: ['observaciones-new'] } }]">
+    <span class="fa fa-plus"></span>
+    <span  jhiTranslate="calimetroApp.observaciones.home.createLabel">
+            Create new Observaciones
+            </span>
+</button><br>
+
+<div class="table-responsive" *ngIf="observacionesFinal.length > 0">
+
+    <h4 jhiTranslate="global.observaciones">TABLA DE OBSERVACIONES</h4>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th width="20%" scope="col">Hora/Fecha</th>
+                <th scope="col">Observaciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let observacion of observacionesFinal">
+                <td>{{observacion[0]}}</td>
+                <td>{{observacion[1]}}</td>
+        </tbody>
+    </table>
+</div>
+<hr>
+
+<jhi-graficas-excel [datosEnvio] ="datos" [lineaEnvio]="linea"></jhi-graficas-excel>

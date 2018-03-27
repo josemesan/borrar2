@@ -1,0 +1,93 @@
+<div>
+    <h2>
+        <span jhiTranslate="calimetroApp.intervaloOfertado.home.title">Intervalo Ofertados</span>
+        <button class="btn btn-primary float-right jh-create-entity create-intervalo-ofertado" [routerLink]="['/', { outlets: { popup: ['intervalo-ofertado-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="calimetroApp.intervaloOfertado.home.createLabel">
+            Create new Intervalo Ofertado
+            </span>
+        </button>
+    </h2>
+    <hr>
+    <div class="row"><br>
+        <div class="col-md-4">
+            <h4 jhiTranslate="global.linea"> Seleccionar línea: </h4>
+            <select  name= "selectlinea" class="form-control" [(ngModel)]="linea" (click)="loadIntervalosLinea()">>
+                <option [ngValue]="null"></option>
+                <option *ngFor="let lin of lineas"><span>{{lin.nombre}}</span></option>
+            </select>
+        </div>
+
+        <div class="col-md-4">
+            <h4 jhiTranslate="global.tipo"> Seleccionar tipo de día: </h4>
+            <select  class="form-control" [(ngModel)]="tipo" (click)="loadIntervalosLinea()">
+                    <option [ngValue]="null"></option>
+                    <option><span>LAB</span></option>
+                    <option><span>VIER</span></option>
+                    <option><span>SAB</span></option>
+                    <option><span>FEST</span></option>
+                    <option><span>ESP</span></option>
+            </select>
+        </div>
+    </div>
+    <hr>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="intervaloOfertados">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th><span jhiTranslate="global.field.id">ID</span></th>
+                <th><span jhiTranslate="calimetroApp.intervaloOfertado.hora">Hora</span></th>
+                <th><span jhiTranslate="calimetroApp.intervaloOfertado.tipoDia">Tipo Dia</span></th>
+                <th><span jhiTranslate="calimetroApp.intervaloOfertado.intervaloMax">Intervalo Max</span></th>
+                <th><span jhiTranslate="calimetroApp.intervaloOfertado.intervaloMin">Intervalo Min</span></th>
+                <!--<th><span jhiTranslate="calimetroApp.intervaloOfertado.linea">Linea</span></th>-->
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let intervaloOfertado of intervaloOfertados ;trackBy: trackId">
+                <td><a [routerLink]="['../intervalo-ofertado', intervaloOfertado.id ]">{{intervaloOfertado.id}}</a></td>
+                <td>{{intervaloOfertado.hora | date:'HH:mm'}}</td>
+                <td jhiTranslate="{{'calimetroApp.TipoDia.' + intervaloOfertado.tipoDia}}">{{intervaloOfertado.tipoDia}}</td>
+                <td>{{intervaloOfertado.intervaloMax}}</td>
+                <td>{{intervaloOfertado.intervaloMin}}</td>
+                <!--<td>-->
+                    <!--<div *ngIf="intervaloOfertado.linea">-->
+                        <!--<a [routerLink]="['../linea', intervaloOfertado.linea?.id ]" >{{intervaloOfertado.linea?.id}}</a>-->
+                    <!--</div>-->
+                <!--</td>-->
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../intervalo-ofertado', intervaloOfertado.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'intervalo-ofertado/'+ intervaloOfertado.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'intervalo-ofertado/'+ intervaloOfertado.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

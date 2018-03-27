@@ -1,0 +1,26 @@
+{
+    "home": {
+        "title": "¡Bienvenido a CaliMetro!",
+        "subtitle": "Aplicación de seguimiento para indicadores de calidad del servicio ferroviario. Si tiene cualquier problema contacte con el administrador:",
+        "logged": {
+            "message":  "Esta logueado como: "
+        },
+        "question": "Si tiene preguntas sobre CaliMetro:",
+        "link": {
+            "homepage": "Página de inicio de JHipster",
+            "stackoverflow": "JHipster en Stack Overflow",
+            "bugtracker": "JHipster seguimiento de errores",
+            "chat": "Sala de chat pública de JHipster",
+            "follow": "contacto @java_hipster en Twitter"
+        },
+        "like": "Si te gusta JHipster, danos una estrella en",
+        "github": "GitHub",
+        "chart": "Gráficas por línea:",
+        "chartG": "Gráficas globales:",
+        "velocidad": "Velocidad",
+        "viajeros": "Viajeros",
+        "consumo": "Consumo",
+        "cuenta": "¿Aún no tienes una cuenta?",
+        "registrate": "Regístrate haciendo click aquí"
+    }
+}
